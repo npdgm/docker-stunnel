@@ -14,4 +14,4 @@ RUN apk add --no-cache stunnel \
 VOLUME /etc/stunnel
 WORKDIR /var/lib/stunnel
 USER stunnel:stunnel
-ENTRYPOINT /usr/bin/stunnel
+ENTRYPOINT ["/usr/bin/stunnel"]

@@ -13,4 +13,4 @@ RUN apt-get update \
 VOLUME /etc/stunnel
 WORKDIR /var/lib/stunnel4
 USER stunnel4:stunnel4
-ENTRYPOINT /usr/bin/stunnel4
+ENTRYPOINT ["/usr/bin/stunnel4"]
