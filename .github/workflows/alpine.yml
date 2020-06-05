@@ -23,6 +23,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: npdgm/stunnel
           add_git_labels: true
+          tag_with_sha: true
           path: alpine/3.12
           build_args: VERSION=5.56-alpine3.12
           tags: 5.56-alpine3.12,5.56-alpine,5.56,alpine,latest
