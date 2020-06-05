@@ -1,0 +1,26 @@
+name: Alpine Linux
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - alpine/3.12/*
+
+jobs:
+  build:
+    name: Build and Push
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: build-push-action
+        uses: docker/build-push-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: npdgm/sandbox-actions
+          add_git_labels: true
+          path: alpine/3.12
+          build_args: VERSION=5.56-alpine3.12
+          tags: 5.56-alpine3.12,5.56-alpine,5.56,alpine,latest
