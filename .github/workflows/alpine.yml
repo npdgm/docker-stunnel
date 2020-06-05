@@ -1,6 +1,8 @@
 name: Alpine Linux
 
 on:
+  repository_dispatch:
+    types: workflow-alpine
   push:
     branches:
       - master
