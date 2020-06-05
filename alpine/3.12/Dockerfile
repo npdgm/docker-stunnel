@@ -8,7 +8,9 @@ LABEL maintainer="Thibault VINCENT <root@paraneko.org>" \
     org.opencontainers.image.authors="Thibault VINCENT <root@paraneko.org>" \
     org.opencontainers.image.licenses="Apache-2.0" \
     org.opencontainers.image.version="$VERSION"
-RUN apk add --no-cache stunnel
+RUN apk add --no-cache stunnel \
+ && chown stunnel:stunnel /var/lib/stunnel \
+ && chmod 0755 /var/lib/stunnel
 VOLUME /etc/stunnel
 WORKDIR /var/lib/stunnel
 USER stunnel:stunnel
